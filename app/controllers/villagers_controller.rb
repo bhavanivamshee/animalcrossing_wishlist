@@ -14,6 +14,16 @@ class VillagersController < ApplicationController
         erb :"villagers/show"
     end
 
+    post "/villagers" do
+        villager = Villager.new(params)
+        if villager.save 
+            redirect "villagers/#{villager.id}"
+        else
+            redirect "villagers/new"
+        end
+
+    end
+
 
     
 end
