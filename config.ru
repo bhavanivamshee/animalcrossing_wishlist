@@ -10,3 +10,4 @@ use Rack::MethodOverride
 
 use UsersController
 use VillagersController
+use SessionsController
