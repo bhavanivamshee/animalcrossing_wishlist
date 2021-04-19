@@ -5,6 +5,10 @@ class VillagersController < ApplicationController
         erb :"villagers/index"
     end
 
-    
+    get "/villagers/new" do 
+        erb :"villagers/new"
+    end
+
+
     
 end

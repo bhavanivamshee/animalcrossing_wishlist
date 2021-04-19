@@ -1,1 +1,15 @@
-<h1> HI! </h1>
+<h1> All The Villagers Are Here! </h1>
+
+<ul>
+
+<% @villagers.each do |villager| %>
+
+    <li>
+        <a href="/villagers/<%= villager.id %>" >
+            <%= villager.villagername %>
+        </a>
+    </li>
+
+<% end %>
+
+</ul>
