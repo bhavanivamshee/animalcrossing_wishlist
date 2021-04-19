@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
     has_many :villagers
 
+    validates :username, :islandname, presence: true
+
     validates :username, uniqueness: true
     
 end

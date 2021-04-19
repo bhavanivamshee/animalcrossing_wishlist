@@ -1,0 +1,18 @@
+<% if @user && @user.errors %>
+    <% @user.errors.full_messages.each do | error | %>
+        <h3 class="error"><%= error %></h3>
+    <% end %>
+<% end %>
+
+
+
+
+<h1>Signup for our site!</h1>
+
+<form method="POST" action="/users">
+    Island Name: <input type="text" name="islandname"><br />
+    Username: <input type="text" name="username"><br />
+    Password: <input type="password" name="password"><br />
+    <input type="submit">
+
+</form>
