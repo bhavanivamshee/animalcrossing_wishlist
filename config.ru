@@ -6,5 +6,7 @@ end
 
 run ApplicationController
 
+use Rack::MethodOverride
+
 use UsersController
 use VillagersController
