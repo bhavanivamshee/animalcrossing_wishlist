@@ -43,6 +43,12 @@ class VillagersController < ApplicationController
 
     end
 
+    delete "/villagers/:id" do
+        @villager = Villager.find_by_id(params[:id])
+        @villager.destroy
+        redirect "/villagers"
+    end
+
 
 
 
