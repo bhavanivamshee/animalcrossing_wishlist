@@ -1,0 +1,23 @@
+<h1> EDIT THIS </h1>
+
+<h2> <%= @villager.villagername %> </h2>
+
+<form method="POST" action="/villagers/<%= @villager.id %>">
+    
+        <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+    <p> Villager Name: <input type="text" name="villagername" value="<%= @villager.villagername %>" ></p>
+    <p> Personality: <input type="text" name="personality" value="<%= @villager.personality %>"></p>
+    <p> Species: <input type="text" name="species" value="<%= @villager.species %>"></p>
+
+
+    
+
+
+    <input type="submit">
+
+
+
+
+
+</form>
