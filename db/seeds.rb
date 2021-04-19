@@ -5,7 +5,8 @@ options = ["Cranky","Jock","Lazy","Normal","Peppy","Smug","Snooty","Sisterly"]
 
 5.times do
     User.create(islandname: Faker::Movies::HarryPotter.location,
-    username: Faker::Movies::HarryPotter.character)
+    username: Faker::Movies::HarryPotter.character,
+    password: "password")
 end
 
 25.times do
