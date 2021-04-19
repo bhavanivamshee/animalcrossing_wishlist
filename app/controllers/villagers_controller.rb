@@ -24,6 +24,27 @@ class VillagersController < ApplicationController
 
     end
 
+    get "/villagers/:id/edit" do
+        @villager = Villager.find_by_id(params[:id])
+        erb :"villagers/edit"
+    end
+
+    patch "/villagers/:id" do
+
+        @villager = Villager.find_by_id(params[:id])
+            params.delete("_method")
+        @villager.update(params)
+     
+        if @villager.update(params) #Did We Make a Change?
+            redirect "/villagers/#{@villager.id}"
+        else
+            redirect "villagers/new"
+        end
+
+    end
+
+
+
 
     
 end
