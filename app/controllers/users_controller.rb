@@ -17,11 +17,28 @@ class UsersController < ApplicationController
             # set the session ID
             session[:user_id] = @user.id
             # redirect the user
-            redirect "/villagers"
+            redirect "/users/show"
         else
         # if it doesn't save
             # redirect them to the sign up page again
             erb :"users/signup"
+        end
+    end
+
+    get '/users/:id' do
+        if logged_in?
+         @user = current_user
+         @villagers = current_user.villagers
+            erb :"users/show"
+        else
+            redirect "/login"
+        end
+    end
+
+    post '/users/show' do
+        @v = current_user.villagers.build(params)
+        if @v.save
+            redirect "/users/shows"
         end
     end
 

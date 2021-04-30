@@ -19,15 +19,15 @@ class VillagersController < ApplicationController
 
     get "/villagers/:id" do
         if logged_in?
-         @villager = Villager.find_by_id(params[:id])
-         erb :"villagers/show"
+            @villager = Villager.find_by_id(params[:id])
+            erb :"villagers/show"
         else
             redirect "/login"
         end
     end
 
     post "/villagers" do
-        villager = current_user.villager.build(params)
+        villager = current_user.villagers.build(params)
         if villager.save 
             redirect "villagers/#{villager.id}"
         else
@@ -39,10 +39,11 @@ class VillagersController < ApplicationController
     get "/villagers/:id/edit" do
         if logged_in?
          @villager = Villager.find_by_id(params[:id])
-         if @villager.user.id == current_user.id
+            if @villager.user.id == current_user.id
             erb :"villagers/edit"
-         else
+            else
             redirect "/login"
+            end
         else
             redirect "/login"
         end
@@ -54,7 +55,7 @@ class VillagersController < ApplicationController
             params.delete("_method")
         @villager.update(params)
      
-        if @villager.update(params) #Did We Make a Change?
+        if @villager.update(params) 
             redirect "/villagers/#{@villager.id}"
         else
             redirect "villagers/new"
@@ -63,13 +64,19 @@ class VillagersController < ApplicationController
     end
 
     delete "/villagers/:id" do
+        if logged_in?
         @villager = Villager.find_by_id(params[:id])
-        @villager.destroy
-        redirect "/villagers"
+         if @villager.user.id == current_user.id
+         @villager.destroy
+         redirect "/villagers"
+         else 
+            redirect "/villagers"
+         end
+        else
+            redirect "/villagers"
+        end
     end
 
 
 
-
-    
 end

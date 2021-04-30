@@ -1,0 +1,15 @@
+<h1> Welcome to <%= current_user.islandname %> </h1>
+
+<a href="/villagers/new" > ➕ ADD A NEW VILLAGER TO YOUR WISHLIST</a>
+
+<% @villagers.each do |villager| %>
+
+    <li>
+    <a href="/villagers/<%= villager.id %>" >
+    <%= villager.villagername %>
+    </a>
+    </li>
+
+    <% end %>
+
+
