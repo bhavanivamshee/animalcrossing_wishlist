@@ -42,7 +42,7 @@ class VillagersController < ApplicationController
             if @villager.user.id == current_user.id
             erb :"villagers/edit"
             else
-            redirect "/login"
+            redirect "/users/show"
             end
         else
             redirect "/login"
@@ -68,12 +68,12 @@ class VillagersController < ApplicationController
         @villager = Villager.find_by_id(params[:id])
          if @villager.user.id == current_user.id
          @villager.destroy
-         redirect "/villagers"
+         redirect "/users/show"
          else 
-            redirect "/villagers"
+            redirect "/users/show"
          end
         else
-            redirect "/villagers"
+            redirect "/login"
         end
     end
 
