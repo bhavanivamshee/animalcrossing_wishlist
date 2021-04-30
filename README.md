@@ -21,4 +21,4 @@ Users have the ability to:
 5. Run `shotgun` to run the app locally at `http://localhost:9393/`.
 
 ## License
-Veggie Tracker is available as open source under the terms of the [MIT License](https://github.com/bhavanivamshee/animalcrossing_wishlist/blob/master/LICENSE.md)
+Animal Crossing Wishlist is available as open source under the terms of the [MIT License](https://github.com/bhavanivamshee/animalcrossing_wishlist/blob/master/LICENSE.md)
